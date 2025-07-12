@@ -10,18 +10,21 @@ int main(){
     cout<<"Enter your name ";
     cin>>n1;
     cout<<"Welcome "<<n1<<" in the Number Guessing Game Hope You Make It!"<<endl<<"lets get started"<<endl;
-    do{
-        cout<< "Enter Guess (1-100)"<<endl;
-        cin>>guess;
-        if(guess>number){
-            cout<< "Guess is too high!"<<endl;
-        }
-        else if(guess<number){
-            cout<<"Guess is too low!"<<endl;
-        }
-        else{
-            cout<<"Hurray You Won"<<endl;
-        }
-    } while(guess != number);
+    for (int i = 1; i <= 10; ++i) {
+        cout << "Attempt " << i << " of " << 10 << ": Enter your guess: ";
+        cin >> guess;
 
+        if (guess > number) {
+            cout << "Too high! Try a smaller number.\n" << endl;
+        } else if (guess < number) {
+            cout << "Too low! Try a bigger number.\n" << endl;
+        } else {
+            cout << "Hurray! You guessed it right in " << i << " attempts. Well done, " << n1 << "!\n";
+            return 0;
+        }
+    }
+    cout << "\nYou've used all your attempts. The correct number was: " << number << endl;
+    cout << "Better luck next time, " << n1<< "!" << endl;
+
+    return 0;
 }
